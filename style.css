@@ -1,0 +1,172 @@
+﻿:root {
+    --duo-green: #58cc02;
+    --duo-green-dark: #46a302;
+    --duo-red: #ff4b4b;
+    --duo-red-dark: #d33131;
+    --duo-gray: #e5e5e5;
+    --duo-text: #4b4b4b;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: var(--duo-text);
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+}
+
+h1 {
+    color: var(--duo-green);
+    text-align: center;
+}
+
+/* 頁面切換導覽列 */
+.tab-nav {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+    .tab-nav button {
+        flex: 1;
+        padding: 12px;
+        border-radius: 12px;
+        border: 2px solid var(--duo-gray);
+        background: #f7f7f7;
+        color: #afafaf;
+        font-weight: bold;
+        cursor: pointer;
+        border-bottom: 4px solid var(--duo-gray);
+    }
+
+        .tab-nav button.active {
+            background: white;
+            color: var(--duo-green);
+            border-color: var(--duo-green);
+            border-bottom: 4px solid var(--duo-green-dark);
+        }
+
+.page {
+    display: none;
+}
+
+    .page.active {
+        display: block;
+    }
+
+/* 卡片與內容 */
+.card {
+    border: 2px solid var(--duo-gray);
+    border-bottom: 5px solid var(--duo-gray);
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: white;
+}
+
+.calendar-scroll-wrapper {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding-bottom: 15px;
+}
+
+    .calendar-scroll-wrapper .card {
+        min-width: 250px;
+        flex-shrink: 0;
+    }
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+select, input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: 2px solid var(--duo-gray);
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+    .checkbox-group label {
+        background: #f7f7f7;
+        padding: 6px 12px;
+        border-radius: 10px;
+        border: 2px solid var(--duo-gray);
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+button.btn-primary {
+    width: 100%;
+    background: var(--duo-green);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    border-bottom: 4px solid var(--duo-green-dark);
+    cursor: pointer;
+}
+
+button.btn-danger {
+    width: 100%;
+    background: none;
+    color: #ccc;
+    border: none;
+    margin-top: 10px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.period-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.course-tag {
+    background: var(--duo-green);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.btn-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-success {
+    background: var(--duo-green);
+    border-bottom: 2px solid var(--duo-green-dark);
+}
+
+.btn-fail {
+    background: var(--duo-red);
+    border-bottom: 2px solid var(--duo-red-dark);
+}

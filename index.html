@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>讀書戰鬥夥伴</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>📚 讀書進度系統</h1>
+            <nav class="tab-nav">
+                <button onclick="switchPage('calendar-page')" id="nav-calendar" class="active">我的行程</button>
+                <button onclick="switchPage('config-page')" id="nav-config">排課設定</button>
+            </nav>
+        </header>
+
+        <main class="container">
+            <section id="calendar-page" class="page active">
+                <div class="calendar-header">
+                    <h3>📅 近期行程 (左右滑動)</h3>
+                </div>
+                <section id="calendar" class="calendar-scroll-wrapper"></section>
+            </section>
+
+            <section id="config-page" class="page">
+                <div class="card config-panel">
+                    <h3>🗓️ 新增排課任務</h3>
+
+                    <div class="form-group">
+                        <label>選擇科目：</label>
+                        <select id="courseSelect" onchange="updateUnitsDisplay()">
+                        </select>
+                        <p id="unitsLeftHint" style="font-size: 13px; color: var(--duo-green); font-weight: bold; margin-top: 5px;"></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>選擇上課星期：</label>
+                        <div class="checkbox-group day-picker">
+                            <label><input type="checkbox" class="day-pref" value="1" checked> 一</label>
+                            <label><input type="checkbox" class="day-pref" value="2" checked> 二</label>
+                            <label><input type="checkbox" class="day-pref" value="3" checked> 三</label>
+                            <label><input type="checkbox" class="day-pref" value="4" checked> 四</label>
+                            <label><input type="checkbox" class="day-pref" value="5" checked> 五</label>
+                            <label><input type="checkbox" class="day-pref" value="6" checked> 六</label>
+                            <label><input type="checkbox" class="day-pref" value="0" checked> 日</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>偏好時段：</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" class="period-pref" value="早" checked> 早</label>
+                            <label><input type="checkbox" class="period-pref" value="中" checked> 中</label>
+                            <label><input type="checkbox" class="period-pref" value="晚" checked> 晚</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>🎯 這次要排幾個「半堂」時段？</label>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <input type="number" id="unitCount" value="2" min="1" max="20">
+                            <span style="font-size: 12px; color: #888;">(例如：輸入 2 代表一門完整的課)</span>
+                        </div>
+                    </div>
+
+                    <button onclick="autoSchedule()" class="btn-primary">確認排入行程</button>
+                    <button onclick="clearAll()" class="btn-danger">清空所有資料並重置數量</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
